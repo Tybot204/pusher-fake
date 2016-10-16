@@ -17,10 +17,7 @@ describe PusherFake::Channel, ".factory" do
   it "caches the channel" do
     allow(PusherFake::Channel::Public).to receive(:new).and_call_original
 
-    factory_1 = subject.factory(name)
-    factory_2 = subject.factory(name)
-
-    expect(factory_1).to eq(factory_2)
+    expect(subject.factory(name)).to eq(subject.factory(name))
   end
 
   it "creates a public channel by name" do
@@ -53,10 +50,7 @@ describe PusherFake::Channel, ".factory, for a private channel" do
   it "caches the channel" do
     allow(PusherFake::Channel::Private).to receive(:new).and_call_original
 
-    factory_1 = subject.factory(name)
-    factory_2 = subject.factory(name)
-
-    expect(factory_1).to eq(factory_2)
+    expect(subject.factory(name)).to eq(subject.factory(name))
   end
 
   it "creates a private channel by name" do
@@ -89,10 +83,7 @@ describe PusherFake::Channel, ".factory, for a presence channel" do
   it "caches the channel" do
     allow(PusherFake::Channel::Presence).to receive(:new).and_call_original
 
-    factory_1 = subject.factory(name)
-    factory_2 = subject.factory(name)
-
-    expect(factory_1).to eq(factory_2)
+    expect(subject.factory(name)).to eq(subject.factory(name))
   end
 
   it "creates a presence channel by name" do

@@ -66,7 +66,7 @@ module PusherFake
         end
 
         channel     = PusherFake::Channel.channels[name]
-        connections = channel ? channel.connections : []
+        connections = channel&.connections || []
 
         result = { occupied: connections.any? }
         result[:user_count] = connections.size if count
